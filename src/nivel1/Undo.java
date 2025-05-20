@@ -22,26 +22,26 @@ public class Undo {
     public void addOrder(String order){
 
         history.add(order);
-        System.out.println("saved");
+        System.out.println("Order saved.");
 
     }
 
     public void undoOrder(){
         if (history.isEmpty()){
 
-            System.out.println("There are no orders to deleted");
+            System.out.println("No orders to delete.");
 
         }
         else{
             history.remove(history.size()-1);
-            System.out.println("Last order was deleted");
+            System.out.println("Last order deleted");
         }
 
     }
 
     public void listOrders(){
         if (history.isEmpty()){
-            System.out.println("There are not orders to show");
+            System.out.println("No orders to show.");
         }
         else{
             for(int i = 0; i < history.size(); i++){

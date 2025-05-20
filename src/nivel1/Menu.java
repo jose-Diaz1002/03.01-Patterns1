@@ -1,40 +1,61 @@
 package nivel1;
 
-
 import java.util.Scanner;
 
 public class Menu {
-    private static Menu menu;
-    private Menu(){
+    private final Scanner scanner;
+    private final Undo undo;
+    private boolean exit = false;
 
+    public Menu() {
+        scanner = new Scanner(System.in);
+        undo = Undo.getInstance();
     }
-    public static Menu getInstance(){
 
-        if(menu == null){
-            menu = new Menu();
+    public void start() {
+        while (!exit) {
+            byte option = getOption();
+            handleOption(option);
         }
-        return menu;
+        scanner.close();
     }
 
-    public byte app(){
-        Scanner scanner = new Scanner(System.in);
-        byte option;
-        final byte MINIMUN = 0;
-        final byte MAXIMUM = 3;
-
-        do{
-            System.out.println("\ntype the number of the operation you want to do");
-            System.out.println("option 1. Add order");
-            System.out.println("option 2. Undo last order");
-            System.out.println("option 3. List orders");
-            System.out.println("option 0. Exit the application.\n");
-            option = scanner.nextByte();
-            if(option < MINIMUN || option > MAXIMUM){
-                System.out.println("Choose a valid option.");
+    private byte getOption() {
+        byte option = -1;
+        do {
+            System.out.println("\nChoose an operation:");
+            System.out.println("1. Add order");
+            System.out.println("2. Undo last order");
+            System.out.println("3. List orders");
+            System.out.println("0. Exit");
+            try {
+                option = Byte.parseByte(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Enter a number.");
             }
-
-        }while(option < MINIMUN || option > MAXIMUM);
+        } while (option < 0 || option > 3);
         return option;
     }
 
+    private void handleOption(byte option) {
+        switch (option) {
+            case 1:
+                System.out.println("Enter the order:");
+                String order = scanner.nextLine();
+                undo.addOrder(order);
+                break;
+            case 2:
+                undo.undoOrder();
+                break;
+            case 3:
+                undo.listOrders();
+                break;
+            case 0:
+                System.out.println("Exiting...");
+                exit = true;
+                break;
+        }
+    }
 }
+
+
