@@ -1,0 +1,48 @@
+@startuml
+' Interfaces y clases principales
+
+interface AgendaFactory {
+    +createAddress : Address
+    +createPhone : Phone
+}
+interface Address {
+    +getAddress() : String
+}
+interface Phone {
+    +getPhone() : String
+}
+
+
+
+class SportClothesFactory {
+}
+
+class GalaClothesFactory {
+}
+
+ClothesFactory <|.. SportClothesFactory
+ClothesFactory <|.. GalaClothesFactory
+
+class SportShirt
+class SportShoe
+class SportTrousers
+
+class GalaShirt
+class GalaShoe
+class GalaTrousers
+
+' Relaciones de creación
+SportClothesFactory --> SportShirt : createShirt()
+SportClothesFactory --> SportShoe : createShoes()
+SportClothesFactory --> SportTrousers : createTrousers()
+
+GalaClothesFactory --> GalaShirt : createShirt()
+GalaClothesFactory --> GalaShoe : createShoes()
+GalaClothesFactory --> GalaTrousers : createTrousers()
+
+' Clase principal
+class Main {
+    +main(args: String[]): void
+}
+
+@enduml
