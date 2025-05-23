@@ -1,7 +1,7 @@
 package nivel2;
 
-import nivel2.products.Address;
-import nivel2.products.Phone;
+import nivel2.models.Address;
+import nivel2.models.Phone;
 
 public interface AgendaFactory {
 

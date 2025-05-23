@@ -1,6 +1,6 @@
-package nivel2.products.countryAddresses;
+package nivel2.models.countries;
 
-import nivel2.products.Phone;
+import nivel2.models.Phone;
 
 public class ColombiaPhone implements Phone {
 
@@ -12,6 +12,6 @@ public class ColombiaPhone implements Phone {
 
         @Override
     public String getPhone() {
-        return "+57" + number;
+        return " phone +57" + number;
     }
 }

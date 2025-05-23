@@ -1,6 +1,6 @@
-package nivel2.products.countryAddresses;
+package nivel2.models.countries;
 
-import nivel2.products.Address;
+import nivel2.models.Address;
 
 public class USAddresses implements Address {
     private String street;
@@ -17,6 +17,6 @@ public class USAddresses implements Address {
 
     @Override
     public String getAddress() {
-        return street + ", " + postalCode + " " + city + ", United State";
+        return "Street " + street + ", postal code " + postalCode + ", city " + city + " country  United State";
     }
 }

@@ -1,10 +1,10 @@
 package nivel2.countriesFactory;
 
 import nivel2.AgendaFactory;
-import nivel2.products.Address;
-import nivel2.products.Phone;
-import nivel2.products.countryAddresses.USAddresses;
-import nivel2.products.countryAddresses.USPhone;
+import nivel2.models.Address;
+import nivel2.models.Phone;
+import nivel2.models.countries.USAddresses;
+import nivel2.models.countries.USPhone;
 
 public class USAgenda implements AgendaFactory {
     @Override

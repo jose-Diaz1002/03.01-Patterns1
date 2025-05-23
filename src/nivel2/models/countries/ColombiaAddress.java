@@ -1,6 +1,6 @@
-package nivel2.products.countryAddresses;
+package nivel2.models.countries;
 
-import nivel2.products.Address;
+import nivel2.models.Address;
 
 public class ColombiaAddress implements Address {
     private String street;
@@ -15,6 +15,6 @@ public class ColombiaAddress implements Address {
 
     @Override
     public String getAddress() {
-        return street + ", " + postalCode + " " + city + ", Colombia";
+        return "Stree " + street + ", postal code " + postalCode + ", city " + city + ", country  Colombia";
     }
 }

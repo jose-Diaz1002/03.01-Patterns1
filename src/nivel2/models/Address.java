@@ -1,4 +1,4 @@
-package nivel2.products;
+package nivel2.models;
 
 public interface Address {
 
